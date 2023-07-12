@@ -1,0 +1,140 @@
+{
+  "ok": true,
+  "result": {
+    "hotels": [
+      {
+        "_id": "61850966872dbbc3b8797b37",
+        "name": "Hotel Villa Saxe eiffel",
+        "rating": 4,
+        "short_address": "7th arr. 3.2 km from center",
+        "city": "Paris",
+        "rooms": ["6185097e872dbbc3b8797b3a", "618509cd872dbbc3b8797b3d"],
+        "country": "France",
+        "address": "9 Villa de Saxe, 7th arr., Paris, 75007 France",
+        "location": "350 m from Metro / Tube station (Ségur)",
+        "type": "Classic Double Room",
+        "created_at": "2021-11-05T10:37:26.431Z",
+        "updated_at": "2021-11-05T10:39:09.604Z"
+      },
+      {
+        "_id": "61850a25872dbbc3b8797b42",
+        "name": "Le Temple De Jeanne",
+        "rating": 4,
+        "short_address": "4th arr. 700 m from center",
+        "city": "Paris",
+        "rooms": ["61850a57872dbbc3b8797b45", "61850a79872dbbc3b8797b48"],
+        "country": "France",
+        "address": "125 Rue Saint-Antoine, 4th arr., Paris, 75004 France",
+        "location": "50 m from Metro / tube station (Saint-Paul)",
+        "type": "Single Room",
+        "created_at": "2021-11-05T10:40:37.731Z",
+        "updated_at": "2021-11-05T10:42:01.137Z"
+      },
+      {
+        "_id": "61850c6a872dbbc3b8797b63",
+        "name": "Hôtel Le Relais Saint Charles",
+        "rating": 3,
+        "short_address": "15th arr., 4,4 km from centre",
+        "city": "Paris",
+        "rooms": ["61850c99872dbbc3b8797b66", "61850cca872dbbc3b8797b69"],
+        "country": "France",
+        "address": "72 Boulevard de Granelle, 15th arr., Paris, 75015 France",
+        "location": "50 m from Metro / tube station (Dupleix)",
+        "type": "Classic Double Room - Street View",
+        "created_at": "2021-11-05T10:50:18.653Z",
+        "updated_at": "2021-11-05T10:51:54.321Z"
+      },
+      {
+        "_id": "61850ad3872dbbc3b8797b4d",
+        "name": "Hôtel La Comtesse",
+        "rating": 4,
+        "short_address": "7th arr. 3,3 km from center",
+        "city": "Paris",
+        "rooms": ["61850b08872dbbc3b8797b50", "61850b35872dbbc3b8797b53"],
+        "country": "France",
+        "address": "29, Avenue De Tourville, 7th arr., Paris, 75007 France",
+        "location": "150 m from Metro / tube station (Ecole militaire)",
+        "type": "Double Room Baronne - Eiffel Tower Side View",
+        "created_at": "2021-11-05T10:43:31.543Z",
+        "updated_at": "2021-11-05T10:45:09.697Z"
+      },
+      {
+        "_id": "61850ba8872dbbc3b8797b58",
+        "name": "Hôtel Le Walt",
+        "rating": 4,
+        "short_address": "7th arr.",
+        "city": "Paris",
+        "rooms": ["61850bf0872dbbc3b8797b5b", "61850c1c872dbbc3b8797b5e"],
+        "country": "France",
+        "address": "29, Avenue De Tourville, 7th arr., Paris, 75007 France",
+        "location": "50 m from Metro / tube station (Ecole militaire)",
+        "type": "Classic Double Room",
+        "created_at": "2021-11-05T10:47:04.465Z",
+        "updated_at": "2021-11-05T10:49:00.382Z"
+      },
+      {
+        "_id": "62b331a9899a4c0c17c6531c",
+        "name": "Grand Hôtel Amelot",
+        "rating": 3,
+        "short_address": "11th arr.",
+        "city": "Paris",
+        "rooms": [
+          "62b331e8899a4c0c17c6531f",
+          "62b33261899a4c0c17c65323",
+          "62b332d3899a4c0c17c65327"
+        ],
+        "country": "France",
+        "address": "54 rue Amelot, 11th arr., 75011 Paris, France",
+        "location": "Chemin vert station is within 200m",
+        "type": "Single Room - Double Room - Standard Twin Room",
+        "created_at": "2022-06-22T15:13:45.416Z",
+        "updated_at": "2022-06-22T15:18:43.137Z"
+      },
+      {
+        "_id": "62b326c5899a4c0c17c6530f",
+        "name": "Austin's Saint Lazare Hotel",
+        "rating": 4,
+        "short_address": "9th arr.",
+        "city": "Paris",
+        "rooms": ["62b32700899a4c0c17c65312", "62b32f9e899a4c0c17c65316"],
+        "country": "France",
+        "address": "26 Rue d'Amsterdam, 9e arr., 75009 Paris, France ",
+        "location": "Saint-Lazare station is within 150m",
+        "type": "Single Room - Double Room - Twin Room",
+        "created_at": "2022-06-22T14:27:17.553Z",
+        "updated_at": "2022-06-22T15:05:02.494Z"
+      },
+      {
+        "_id": "62b3226c899a4c0c17c65302",
+        "name": "Westside Arc de Triomphe Hotel",
+        "rating": 4,
+        "short_address": "17th arr.",
+        "city": "Paris",
+        "rooms": ["62b32337899a4c0c17c65305", "62b323db899a4c0c17c65309"],
+        "country": "France",
+        "address": "36 rue Pierre Demours, 17e arr., 75017 Paris",
+        "location": "500m from Perreira metro station",
+        "type": "Classic Double Room",
+        "created_at": "2022-06-22T14:08:44.176Z",
+        "updated_at": "2022-06-22T14:14:51.748Z"
+      },
+      {
+        "_id": "63efae4735d3cc8a5a275f3e",
+        "name": "Hotel1",
+        "rating": 4,
+        "short_address": "Test hotel short address",
+        "city": "Paris",
+        "rooms": [],
+        "country": "France",
+        "address": "Test hotel address",
+        "location": "Test hotel location",
+        "type": "Test hotel type",
+        "created_at": "2023-02-17T16:41:43.071Z",
+        "updated_at": "2023-02-17T18:18:13.147Z"
+      }
+    ],
+    "totalCount": 9,
+    "totalPages": 1,
+    "currentPage": 1
+  }
+}
