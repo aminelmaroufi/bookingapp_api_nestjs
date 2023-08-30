@@ -19,7 +19,4 @@ blocking_push:
     - master
   script:
     - echo "Blocking push if tests failed"
-  rules:
-    - exists:
-        - coverage/
-      when: on_failure
+  when: on_failure
