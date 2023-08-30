@@ -1,3 +1,5 @@
+image: node:16
+
 stages:
   - test
 
@@ -7,16 +9,6 @@ unit_test:
     - master
   script:
     - npm install
-    - npm run test
+    - npm run test:cov
   after_script:
     - echo "Unit tests completed"
-  except:
-    - schedules
-
-blocking_push:
-  stage: test
-  only:
-    - master
-  script:
-    - echo "Blocking push if tests failed"
-  when: on_failure

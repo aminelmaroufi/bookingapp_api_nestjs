@@ -7,11 +7,11 @@ import { Hotel } from '../schemas/hotel.schema';
 import * as getHotelsMockResponse from './fixtures/getHotels_response.json';
 import { File } from 'src/files/schemas/file.schema';
 
-const mockHotelModel = () => ({
+const mockHotelModel = {
   find: jest.fn(),
   findById: jest.fn(),
   countDocuments: jest.fn(),
-});
+};
 
 const mockFileService = () => ({
   saveFile: jest.fn(),
@@ -28,17 +28,13 @@ describe('HotelService', () => {
       providers: [
         HotelService,
         { provide: getModelToken(Hotel.name), useValue: mockHotelModel },
-        FilesService,
-        {
-          provide: getModelToken(File.name),
-          useFactory: mockFileService,
-        },
+        { provide: FilesService, useValue: mockFileService },
       ],
     }).compile();
 
     hotelService = module.get<HotelService>(HotelService);
     fileService = module.get<FilesService>(FilesService);
-    hotelModel = module.get<Model<Hotel>>(getModelToken('Hotel'));
+    hotelModel = module.get<Model<Hotel>>(getModelToken(Hotel.name));
   });
 
   it('should be defined', () => {
@@ -57,11 +53,8 @@ describe('HotelService', () => {
           Promise.resolve(getHotelsMockResponse.result.totalCount) as any,
         );
 
-      // (mockHotelModel.countDocuments as jest.Mock).mockResolvedValue(
-      //   getHotelsMockResponse.result.totalCount,
-      // );
-
       jest.spyOn(hotelModel, 'find').mockReturnValueOnce({
+        populate: jest.fn().mockReturnThis(),
         skip: jest.fn().mockReturnThis(),
         limit: jest.fn().mockReturnThis(),
         exec: jest

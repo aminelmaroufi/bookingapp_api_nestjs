@@ -15,10 +15,7 @@ describe('RoomsController', () => {
   beforeEach(async () => {
     const module: TestingModule = await Test.createTestingModule({
       controllers: [RoomsController],
-      providers: [
-        RoomsService,
-        { provide: getModelToken('Room'), useFactory: mockRoomService },
-      ],
+      providers: [{ provide: RoomsService, useValue: mockRoomService }],
     }).compile();
 
     controller = module.get<RoomsController>(RoomsController);
