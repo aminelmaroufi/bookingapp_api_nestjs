@@ -37,6 +37,7 @@ export class HotelService {
 
     const hotels = await this.hotelModel
       .find(filters)
+      .populate('rooms')
       .skip((page - 1) * limit)
       .limit(limit)
       .exec();
@@ -49,12 +50,16 @@ export class HotelService {
     };
   }
 
+  async findOne(id: string) {
+    return this.hotelModel.findById(id).exec();
+  }
+
   async createHotel(
     data: any,
     main_picture: Express.Multer.File,
     second_picture: Express.Multer.File,
   ): Promise<Hotel> {
-    data.rating = parseInt(data.rating);
+    data.rating = +data.rating;
     const errors = await validate(plainToClass(CreateHotelDto, data));
 
     if (errors.length > 0) {
@@ -82,7 +87,7 @@ export class HotelService {
     main_picture: Express.Multer.File,
     second_picture: Express.Multer.File,
   ): Promise<Hotel> {
-    data.rating = parseInt(data.rating);
+    data.rating = +data.rating;
     const errors = await validate(plainToClass(CreateHotelDto, data));
 
     if (errors.length > 0) {
@@ -135,6 +140,13 @@ export class HotelService {
       deletedHotel.second_picture,
     );
     return deletedHotel;
+  }
+  async deleteRoomFromHotel(hotelId: string, roomId: string): Promise<Hotel> {
+    return this.hotelModel.findByIdAndUpdate(
+      hotelId,
+      { $pull: { rooms: roomId } },
+      { new: true },
+    );
   }
 
   private mapHotelToDto(hotel: HotelDocument): HotelDto {

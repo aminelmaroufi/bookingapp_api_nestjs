@@ -5,7 +5,10 @@ import { AdminService } from './services/admin.service';
 import { AdminController } from './controllers/admin.controller';
 import { UsersModule } from 'src/users/users.module';
 import { HotelsModule } from 'src/hotels/hotels.module';
+import { RoomsModule } from 'src/rooms/rooms.module';
 import { AdminHotelsController } from './controllers/hotels.controller';
+import { AdminHotelRoomsController } from './controllers/rooms.controller';
+
 import config from 'src/config';
 
 @Module({
@@ -22,8 +25,13 @@ import config from 'src/config';
     }),
     UsersModule,
     HotelsModule,
+    RoomsModule,
   ],
-  controllers: [AdminController, AdminHotelsController],
+  controllers: [
+    AdminController,
+    AdminHotelsController,
+    AdminHotelRoomsController,
+  ],
   providers: [AdminService],
 })
 export class AdminModule {}

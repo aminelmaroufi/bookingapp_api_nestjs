@@ -1,16 +1,17 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
 import { Document, Types } from 'mongoose';
 import config from 'src/config';
+import { Hotel } from 'src/hotels/schemas/hotel.schema';
 
 @Schema({ strict: false, timestamps: config.db.lib.mongoose.timestamps })
-export class Room {
-  @Prop({ required: true })
+export class Room extends Document {
+  @Prop({ unique: true, required: true })
   title: string;
 
   @Prop({ required: true })
   advantage: string;
 
-  @Prop({ ref: 'Grid', type: Types.ObjectId })
+  @Prop({ type: Types.ObjectId, ref: 'File' })
   room_picture: string;
 
   @Prop({ required: true, default: 0 })
@@ -18,8 +19,9 @@ export class Room {
 
   @Prop({ default: false })
   is_archived: boolean;
-}
 
-export type RoomDocument = Room & Document;
+  // @Prop({ type: Types.ObjectId, ref: 'Hotel' })
+  // hotel: Hotel;
+}
 
 export const RoomSchema = SchemaFactory.createForClass(Room);

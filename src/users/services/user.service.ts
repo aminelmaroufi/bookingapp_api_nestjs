@@ -16,7 +16,7 @@ export class UserService {
   }
 
   async createDefaultAdmin(admin: any): Promise<any> {
-    const defaultAdmin = new this.userModel(admin);
-    return defaultAdmin.save();
+    const defaultAdmin = await this.userModel.create(admin);
+    return defaultAdmin;
   }
 }

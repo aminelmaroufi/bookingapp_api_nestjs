@@ -6,14 +6,33 @@ import {
   ParseIntPipe,
   DefaultValuePipe,
 } from '@nestjs/common';
+import { ApiOkResponse, ApiOperation, ApiTags } from '@nestjs/swagger';
 import { HotelService } from '../services/hotels.service';
 import { ResponseDto } from 'src/common/dto/response.dto'; // Import the custom response DTO
+import { HotelDto } from '../dto/hotel.dto';
 
+@ApiTags('hotels')
 @Controller('hotels')
 export class HotelController {
   constructor(private readonly hotelService: HotelService) {}
 
   @Get()
+  @ApiOperation({ summary: 'Get hotels' })
+  @ApiOkResponse({
+    description: 'Get hotels',
+    schema: {
+      properties: {
+        ok: { type: 'boolean', example: true },
+        result: {
+          type: 'object',
+          properties: {
+            message: { type: 'string', example: '' },
+            hotels: { type: 'array', example: [] },
+          },
+        },
+      },
+    },
+  })
   async getHotels(
     @Res() res,
     @Query('page', new DefaultValuePipe(1), ParseIntPipe) page: number,

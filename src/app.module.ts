@@ -7,6 +7,7 @@ import { HotelsModule } from './hotels/hotels.module';
 import { RoomsModule } from './rooms/rooms.module';
 import { FilesModule } from './files/files.module';
 import { AuthModule } from './auth/auth.module';
+import { BookingModule } from './booking/booking.module';
 import config from './config';
 
 @Module({
@@ -19,6 +20,7 @@ import config from './config';
     RoomsModule,
     FilesModule,
     AuthModule,
+    BookingModule,
   ],
   controllers: [],
   providers: [],

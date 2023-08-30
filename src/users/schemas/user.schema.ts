@@ -4,7 +4,7 @@ import { Schema, Prop, SchemaFactory } from '@nestjs/mongoose';
 import { Document, Types } from 'mongoose';
 import * as crypto from 'crypto';
 
-export interface User extends Document {
+export interface User {
   firstname: string;
   lastname: string;
   email: string;
@@ -13,7 +13,6 @@ export interface User extends Document {
   phone: string;
   picture: string;
   salt: string;
-  data: any;
   provider: string;
   providerData: any;
   additionalProvidersData: any;
@@ -27,7 +26,7 @@ export interface User extends Document {
 }
 
 @Schema({ timestamps: true })
-export class User {
+export class User extends Document {
   @Prop({ required: true })
   firstname: string;
 
@@ -60,9 +59,6 @@ export class User {
 
   @Prop()
   salt: string;
-
-  @Prop({ type: Object })
-  data: any;
 
   @Prop({ required: true })
   provider: string;

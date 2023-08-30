@@ -1,3 +1,4 @@
+import { ApiProperty } from '@nestjs/swagger';
 import { IsString, IsEnum, IsNumber } from 'class-validator';
 
 export class HotelDto {
@@ -19,27 +20,54 @@ export class HotelDto {
 
 export class CreateHotelDto {
   @IsString()
+  @ApiProperty({ description: 'Name of the hotel' })
   name: string;
 
   @IsString()
+  @ApiProperty({ description: 'Type of the hotel' })
   type: string;
 
   @IsString()
+  @ApiProperty({ description: 'Country of the hotel' })
   country: string;
 
   @IsString()
+  @ApiProperty({ description: 'City of the hotel' })
   city: string;
 
   @IsString()
+  @ApiProperty({ description: 'Adress of the hotel' })
   address: string;
 
   @IsString()
+  @ApiProperty({ description: 'Short address of the hotel' })
   short_address: string;
 
   @IsString()
+  @ApiProperty({ description: 'Location of the hotel' })
   location: string;
 
   @IsNumber()
   @IsEnum([1, 2, 3, 4, 5])
+  @ApiProperty({ description: 'Rating of the hotel' })
   rating: number;
+}
+
+export class HotelCreatedResponseDto {
+  ok: boolean;
+  result: {
+    message: string;
+    hotel: HotelDto;
+  };
+}
+
+export class GetHotelsResponseDto {
+  ok: boolean;
+  result: {
+    message: string;
+    hotels: HotelDto[];
+    totalCount: number;
+    totalPages: number;
+    currentPage: number;
+  };
 }

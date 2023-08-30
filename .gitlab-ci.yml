@@ -1,0 +1,19 @@
+image: node:16
+
+stages:
+  - test
+
+before_script:
+  - yarn install
+
+test:
+  stage: test
+  only:
+    - master
+  script:
+    - yarn test
+    # Block push if tests fail
+    - if [ "$CI_COMMIT_STATUS" = "running" ]; then
+        echo "Tests failed. Blocking push."
+        exit 1
+    fi

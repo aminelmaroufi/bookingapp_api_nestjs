@@ -1,0 +1,39 @@
+{
+  "ok": true,
+  "result": {
+    "hotels": [
+      {
+        "_id": "64b00319900e7e21c35a55f5",
+        "name": "test1",
+        "rating": 3,
+        "short_address": "test",
+        "city": "test",
+        "rooms": [
+          {
+            "_id": "64b00330900e7e21c35a55fb",
+            "title": "title1",
+            "advantage": "ad1",
+            "room_picture": "64b519ad0f7db80ace032cae",
+            "price": 200,
+            "is_archived": false,
+            "hotel": "64b00319900e7e21c35a55f5",
+            "created_at": "2023-07-13T13:59:12.773Z",
+            "updated_at": "2023-07-17T10:36:29.422Z",
+            "__v": 0
+          }
+        ],
+        "country": "c1",
+        "address": "test",
+        "location": "test",
+        "type": "type1",
+        "created_at": "2023-07-13T13:58:49.249Z",
+        "updated_at": "2023-07-17T10:49:55.535Z",
+        "main_picture": "64b00319900e7e21c35a55f1",
+        "second_picture": "64b00319900e7e21c35a55f3"
+      }
+    ],
+    "totalCount": 1,
+    "totalPages": 1,
+    "currentPage": 1
+  }
+}

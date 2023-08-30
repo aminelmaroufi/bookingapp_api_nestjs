@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, NotFoundException } from '@nestjs/common';
 import { Model } from 'mongoose';
 import { InjectModel } from '@nestjs/mongoose';
 import { unlink } from 'fs';
@@ -20,7 +20,7 @@ export class FilesService {
   async getFilePath(fileId: string): Promise<string> {
     const file = await this.fileModel.findById(fileId);
     if (!file) {
-      throw new Error('File not found');
+      throw new NotFoundException('File not found');
     }
     return file.filename;
   }

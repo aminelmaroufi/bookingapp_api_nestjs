@@ -2,27 +2,42 @@ import { Test, TestingModule } from '@nestjs/testing';
 import { getModelToken } from '@nestjs/mongoose';
 import { Model, Query } from 'mongoose';
 import { HotelService } from './hotels.service';
+import { FilesService } from 'src/files/services/files.service';
 import { Hotel } from '../schemas/hotel.schema';
 import * as getHotelsMockResponse from './fixtures/getHotels_response.json';
+import { File } from 'src/files/schemas/file.schema';
 
 const mockHotelModel = () => ({
   find: jest.fn(),
+  findById: jest.fn(),
   countDocuments: jest.fn(),
+});
+
+const mockFileService = () => ({
+  saveFile: jest.fn(),
+  deleteFile: jest.fn(),
 });
 
 describe('HotelService', () => {
   let hotelService: HotelService;
+  let fileService: FilesService;
   let hotelModel: Model<Hotel>;
 
   beforeEach(async () => {
     const module: TestingModule = await Test.createTestingModule({
       providers: [
         HotelService,
-        { provide: getModelToken('Hotel'), useFactory: mockHotelModel },
+        { provide: getModelToken(Hotel.name), useValue: mockHotelModel },
+        FilesService,
+        {
+          provide: getModelToken(File.name),
+          useFactory: mockFileService,
+        },
       ],
     }).compile();
 
     hotelService = module.get<HotelService>(HotelService);
+    fileService = module.get<FilesService>(FilesService);
     hotelModel = module.get<Model<Hotel>>(getModelToken('Hotel'));
   });
 
@@ -41,6 +56,10 @@ describe('HotelService', () => {
         .mockReturnValueOnce(
           Promise.resolve(getHotelsMockResponse.result.totalCount) as any,
         );
+
+      // (mockHotelModel.countDocuments as jest.Mock).mockResolvedValue(
+      //   getHotelsMockResponse.result.totalCount,
+      // );
 
       jest.spyOn(hotelModel, 'find').mockReturnValueOnce({
         skip: jest.fn().mockReturnThis(),

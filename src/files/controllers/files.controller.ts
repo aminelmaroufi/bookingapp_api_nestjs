@@ -1,8 +1,12 @@
-import { Controller, Get, Param, Res } from '@nestjs/common';
+import { Controller, Get, Param, Res, UseFilters } from '@nestjs/common';
 import { Response } from 'express';
 import * as path from 'path';
 import { FilesService } from '../services/files.service';
+import { ApiTags } from '@nestjs/swagger';
+import { HttpExceptionFilter } from 'src/config/http-exception.filter';
 
+@ApiTags('files')
+@UseFilters(HttpExceptionFilter)
 @Controller('files')
 export class FilesController {
   constructor(private readonly filesService: FilesService) {}
