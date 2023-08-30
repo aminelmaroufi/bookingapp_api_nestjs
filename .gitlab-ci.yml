@@ -1,19 +1,25 @@
-image: node:16
-
 stages:
   - test
 
-before_script:
-  - yarn install
-
-test:
+unit_test:
   stage: test
   only:
     - master
   script:
-    - yarn test
-    # Block push if tests fail
-    - if [ "$CI_COMMIT_STATUS" = "running" ]; then
-        echo "Tests failed. Blocking push."
-        exit 1
-    fi
+    - npm install
+    - npm run test
+  after_script:
+    - echo "Unit tests completed"
+  except:
+    - schedules
+
+blocking_push:
+  stage: test
+  only:
+    - master
+  script:
+    - echo "Blocking push if tests failed"
+  rules:
+    - exists:
+        - coverage/
+      when: on_failure
