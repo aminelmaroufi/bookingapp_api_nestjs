@@ -24,7 +24,7 @@
 
 ## Description
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+A booking hotels app api using typescript and nestjs.
 
 ## Installation
 
@@ -33,6 +33,8 @@ $ npm install
 ```
 
 ## Running the app
+
+N.B: Don't forget to run your mongodb server before running the app, and also you need to fill the variables environment in ```.env``` file
 
 ```bash
 # development
@@ -58,15 +60,10 @@ $ npm run test:e2e
 $ npm run test:cov
 ```
 
-## Support
-
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
 
 ## Stay in touch
 
-- Author - [Kamil Myśliwiec](https://kamilmysliwiec.com)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
+- Developer - Amine EL MAROUFI
 
 ## License
 
